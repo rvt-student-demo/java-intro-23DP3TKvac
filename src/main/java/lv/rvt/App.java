@@ -1,19 +1,31 @@
 package lv.rvt;
 
+
 public class App 
 {
-    public static void main( String[] args )
-    {
-     int[] val = {0, 1, 2, 3};
-     int temp;
-     
-     System.out.println( "Original Array: " + val[0] + " " + val[1] + " " + val[2] + " " + val[3] );
+    public static void main( String[] args ) {
 
-     for(int i = 0; i < val.length / 2; i++){
-        temp = val[i];
-        val[i] = val[val.length - 1 - i];
-        val[val.length - 1 - i] = temp; 
-     }
-     System.out.println( "Reversed Array: " + val[0] + " " + val[1] + " " + val[2] + " " + val[3] );
+        String[] words = {"sebastian", "lucas", "lily", "hanna", "gabriel"};
+        String[] years = {"2017", "2017", "2017", "2014", "2009"};
+
+        int sum = 0;
+        for (String year : years) {
+            sum += Integer.parseInt(year);
+        }
+        int averageYear = (int) sum / years.length;
+
+        String longestWord = "";
+        int maxLenght = 0;
+
+        for (String word : words) {
+            if (word.length() > maxLenght) {
+                longestWord = word;
+                maxLenght = word.length();
+            }
+        }
+        System.out.println("Longest name:" + longestWord);
+        System.out.println("Average of the birth years:" + averageYear);
     }
 }
+
+
