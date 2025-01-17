@@ -20,27 +20,52 @@ public class Box {
     this.width = side;
   }
 
+  public Box (Box oldBox) {
+
+      this.width = oldBox.width;
+      this.height = oldBox.height;
+      this.length = oldBox.length;
+  }
+
+  public Box biggerBox(Box oldBox) {
+
+    return new Box(1.25 * oldBox.width, 1.25 * oldBox.height, 1.25 * oldBox.length);
+  }
+
+  public Box smallerBox(Box oldBox) {
+
+    return new Box(0.75 * oldBox.width, 0.75 * oldBox.height, 0.75 * oldBox.length);
+  }
+
+  public boolean nests(Box outsideBox) {
+
+    return this.width <= outsideBox.width &&
+           this.height <= outsideBox.height &&
+           this.length <= outsideBox.length;
+  }
+
   public double volume() {
 
     return length * height * width;
   }
 
+  private double faceArea() {
+
+    return width * height;
+  }
+
+  public double topArea() {
+
+    return length * width;
+  }
+  
+  private double sideArea() {
+
+    return length * height;
+  }
+
   public double area() {
 
-    return 2 * (length * height + width * length * height + width);
-  }
-    
-}
-
-class BoxTester
-{
-
-  public static void main ( String[] args )
-  {
-     Box box = new  Box( 2.5, 5.0, 6.0 ) ;
-
-     System.out.println( "Area: "  + box.area() + " volume: " + box. volume() );
-
-     System.out.println( "length: " + box.length + " height: " + box.height + "width:  " + box.width );
+    return 2 * faceArea() + 2 * topArea() + 2 * sideArea();
   }
 }

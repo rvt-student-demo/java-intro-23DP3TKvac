@@ -1,19 +1,28 @@
 package lv.rvt;
 
-import java.io.BufferedReader;
-import java.util.Scanner;
-
-public class App{
+public class App {
     
-    public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
+  public static void main (String[] args)
+  {
+     Box box = new  Box( 2.5, 5.0, 6.0 );
 
-        BufferedReader reader = Helper.getReader("person.csv");
+     Box box1 = new Box(2.5, 5.0, 6.0);
+     Box box2 = new Box(3.0, 6.0, 7.0);
 
-        System.out.println(reader.readLine());
-        System.out.println(reader.readLine());
-        System.out.println(reader.readLine());
-    }
+
+
+     Box biggerBox = box.biggerBox(box);
+
+     Box smallerBox = box.smallerBox(box);
+
+     System.out.println("Area: "  + box.area() + " volume: " + box.volume());
+
+     System.out.println("topArea: " + box.topArea());
+
+     System.out.println("Bigger Box Area: " + biggerBox.area() + " Volume: " + biggerBox.volume());
+
+     System.out.println("Smaller Box Area: " + smallerBox.area() + " Volume: " + smallerBox.volume());
+
+     System.out.println("Can box1 nests inside box2? " + box1.nests(box2));
+  }
 }
-
-
