@@ -1,28 +1,22 @@
 package lv.rvt;
 
 public class App {
-    
-  public static void main (String[] args)
-  {
-     Box box = new  Box( 2.5, 5.0, 6.0 );
 
-     Box box1 = new Box(2.5, 5.0, 6.0);
-     Box box2 = new Box(3.0, 6.0, 7.0);
-
-
-
-     Box biggerBox = box.biggerBox(box);
-
-     Box smallerBox = box.smallerBox(box);
-
-     System.out.println("Area: "  + box.area() + " volume: " + box.volume());
-
-     System.out.println("topArea: " + box.topArea());
-
-     System.out.println("Bigger Box Area: " + biggerBox.area() + " Volume: " + biggerBox.volume());
-
-     System.out.println("Smaller Box Area: " + smallerBox.area() + " Volume: " + smallerBox.volume());
-
-     System.out.println("Can box1 nests inside box2? " + box1.nests(box2));
-  }
+        public static void main(String[] args) {
+           Teacher ada = new Teacher("Ada Lovelace", "24 Maddox St. London W1S 2QN", 1200);
+           Teacher esko = new Teacher("Esko Ukkonen", "Mannerheimintie 15 00100 Helsinki", 5400);
+                
+           System.out.println(ada);
+           System.out.println(esko);
+                
+           Student ollie = new Student("Ollie", "6381 Hollywood Blvd. Los Angeles 90028");
+                
+           int i = 0;
+           while (i < 25) {
+                ollie.study();
+                i = i + 1;
+           }
+                
+           System.out.println(ollie);   
+        }
 }
